@@ -1,15 +1,12 @@
-import express from 'express';
-import router from './routes/index';
+import Express from 'express';
+import router from './routes';
 
-const port = parseInt(process.env.PORT, 10) || 5000;
+const app = new Express();
 
-const app = express();
-
-app.use(express.json());
+app.use(Express.json());
 app.use('/', router);
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-  console.log(`server running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
-
-export default app;
